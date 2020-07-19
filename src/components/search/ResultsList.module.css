@@ -1,0 +1,24 @@
+.poster {
+	max-height: 100px;
+}
+
+.mygrid {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+	.mygrid {
+		flex-direction: column;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.poster {
+		max-height: 200px;
+	}
+}
