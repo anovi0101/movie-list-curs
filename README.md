@@ -1,5 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Known issues
+
+-> the content from the search results list isn't responsive... YET :)
+-> the search results aren't moved to a different page and are displayed at the top of the main page... FOR NOW :)
+-> the favorite movies are saved locally regardless of user name
+
+## Features
+
+-> search results items can be added/removed to/from the favorites list on the fly, without leaving the screen
+-> added extra content to the project (popular movies, now playing movies, top rated movies and upcoming movies)
+-> added 2 new ways of displaying movie information (MovieItemCard -> search results, SmallMovieCard -> multiple movie grids)
+-> added reusable MovieList component (if the movies parameter is sent, the list displays those movies; if the URL parameter is passed to the component, then the component fetches the movie list using that particular URL)
+-> added vertical tabs for an easier navigation between the generated content sections (popular movies, now playing movies, top rated movies, upcoming movies, and favorite movies)
+
 ## Available Scripts
 
 In the project directory, you can run:
