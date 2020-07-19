@@ -1,23 +1,35 @@
 import React from 'react';
-import { Card, CardActionArea, CardMedia, CardContent, CardActions, Button, Typography } from '@material-ui/core';
+import { Card, CardActionArea, CardContent, CardActions, Button, Typography } from '@material-ui/core';
 
-const MovieCard = () => {
+import Rating from './Rating';
+import { formatDate } from '../../utils/dateUtils';
+
+import { useHistory } from 'react-router-dom';
+
+const MovieCard = (props) => {
+	const { movie, changeRating, removeFromFavorites } = props;
+	let history = useHistory();
 	return (
 		<Card>
 			<CardActionArea>
 				<CardContent>
-					<CardMedia image="" description="movie poster" />
-					<Typography variant="h5">Movie Title</Typography>
+					<Typography variant="h5">{movie.original_title}</Typography>
 					<Typography variant="body2" color="textSecondary">
-						Movie description
+						{formatDate(movie.release_date)}
 					</Typography>
-					<CardActions>
-						<Button size="small" color="primary">
-							Delete
-						</Button>
-					</CardActions>
+					<div>
+						<Rating userRating={movie.userRating} changeRating={changeRating} movieId={movie.id} />
+					</div>
 				</CardContent>
 			</CardActionArea>
+			<CardActions>
+				<Button size="small" color="secondary" onClick={() => history.push(`/details/${movie.id}`)}>
+					View details
+				</Button>
+				<Button size="small" color="primary" onClick={() => removeFromFavorites(movie)}>
+					Remove from favorites
+				</Button>
+			</CardActions>
 		</Card>
 	);
 };
